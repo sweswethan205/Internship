@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: rgb(18, 16, 16);
+            color: rgb(206, 196, 196);
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;   
+        }
+
+        body {
+            margin: 20px 150px 20px 150px;
+            overflow-y: hidden;
+        }
+
+        a {
+            padding-left: 30px;
+            text-decoration: none;
+            color: white;
+        }
+
+        /* .myLogo {
+            padding-left: 56rem;
+        } */
+
+        h3 {
+            width: 350px;
+            height: 70px;
+            /* border: 1px solid black; */
+            border-radius: 10px;
+            display: flex;
+            /* text-align: center; */
+            align-items: center;
+            justify-content: center;
+            background-color: oklab(81.933% 0.00482 -0.04685);
+            /* margin-left: 30px;
+        margin-left: 30px; */
+
+        }
+
+        .feature {
+            /* background-color: aqua; */
+            display: flex;
+            /* flex-direction: row; */
+            justify-content: space-around;
+            padding-bottom: 20px;
+        }
+
+        .box1 {
+            background-color: antiquewhite;
+            width: 50%;
+            border: 1px solid rgb(198, 196, 196);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 30px;
+            padding-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .box3 {
+            border: 1px solid black;
+            width: 50%;
+            background-color: blue;
+            padding: 30px;
+            color: white;
+        }
+
+        .box2 {
+            border: 1px dashed rgb(112, 111, 111);
+            width: 50%;
+            background-color: rgb(230, 226, 226);
+            border-radius: 10px;
+            display: flex;
+            /* text-align: center; */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background-color: blue;
+            padding: 10px;
+            margin: 20px;
+            color: white
+        }
+
+        button:hover {
+            background-color: aquamarine;
+            color: aliceblue
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Utility Simulator</h1>
+    <p>Change the inputs below to see how to automatic classes combine to build UIs </p>
+    <nav>
+        <h2>MyLogo</h2>
+        <div>
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+        </div>
+    </nav>
+    <div class="feature">
+        <h3>Feature1</h3>
+        <h3>Feature2</h3>
+        <h3>Feature3</h3>
+    </div>
+    <div class="container">
+        <section class="box1">
+            <h2>Utility Controls</h2>
+            <label for="space">Padding (Spacing)</label>
+            <select name="space" id="space">
+                <option>Medium(P-8)</option>
+            </select>
+
+            <label for="color">Background Theme(Colors) </label>
+            <select name="color" id="color">
+                <option>Primary Blue</option>
+            </select>
+
+            <label for="typo">Text Size (Typography)</label>
+            <select name="typo" id="typo">
+                <option>Large(text-xl)</option>
+            </select>
+
+            <label for="border">Corner Radius(Border)</label>
+            <select name="border" id="border">
+                <option>Square (rounded-none)</option>
+            </select>
+
+            <label for="depth">Shadow(Depth)</label>
+            <select name="depth" id="depth">
+                <option>Medium (shadow-md)</option>
+            </select>
+        </section>
+        <section class="box2">
+            <div class="box3">
+                <h2>Alex Walker</h2>
+                <p>Full-Stack Web Developer building awesome things with Tailwind CSS</p>
+            </div>
+        </section>
+    </div>
+    <button>Submit</button>
+    <button>Hover Me Slowly!</button>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .container {
+            width: 400px;
+            height: 250px;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+            gap: 20px;
+            padding: 10px;
+            box-shadow: 0 2px 5px ;
+
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            width: 370px;
+            height: 30px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+        button:hover {
+            background-color: blueviolet;
+        }
+
+        p {
+            border: 1px dotted black;
+            width: 370px;
+            height: 30px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        #answer {
+            color: aqua;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Mini Calculator</h1>
+        <span>
+            <input type="number" id="num1"></input>
+            <select name="" id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="num2" ></input>
+        </span>
+        <button onClick="calculate()">Calculate Amount</button>
+        <p>Result:<span id="answer"></span></p>
+    </div>
+    <script>
+        function calculate() {
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+            let operator = document.getElementById("operator").value;;
+            let result;
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("answer").innerText = "Error";
+            }
+            else{
+                switch (operator) {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        if(num2!==0){
+                        result = num1 / num2;
+                        }
+                        else{
+                            result="Cann't provide by 0";
+                        }
+                        break;
+                        Default: "Invalid";
+                }
+                document.getElementById("answer").innerText = result;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+*{
+  margin:0;padding:0;box-sizing:border-box;
+
+box center
+text-align: center;
+ align-items: center; 
+ display: flex;
+justify-content: center,space-between;
+
+compare flex-direction: column;
+space   gap:10px;

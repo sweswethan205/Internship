@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            padding:20px;
+            background-color: aliceblue;
+            width:600px;
+            border: 15px;
+            box-shadow: 0 2px 5px;
+        }
+        .box1{
+            display: flex ; 
+        }
+        #VIP{
+            margin-left:150px ;
+        }
+        .box2{
+            margin-left: 100px;
+        }
+        #card{
+            
+            width: 200px;
+            height: 150px;
+            border: solid ;
+            border-radius: 15px;
+        }
+        #outvip{
+            background-color: darkorange;
+            width: 130px;
+            border-radius: 20px;
+            text-align: center;
+            margin-left: 10px;
+        }
+        p{
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="box1">
+    <div>
+        <h2>Update Variables</h2>
+        <div>
+        <label for="name" >Name(String):</label></div><br>
+        <input type="text" value="Alex Walker" id="name" oninput="updateCard()"></input>
+        
+        <div><br>
+        <label for="age">Age (Number):</label>
+        </div><br>
+        
+        <input type="number" value="23" id="age" oninput="updateCard()"></input> 
+        <div><br>
+        <label for="VIP">VIP Status (Boolean):</label>
+        </div>
+        <input type="checkbox" id="VIP" onchange="updateCard()"></input> 
+        <div>
+        <label for="card color">Card Color :</label>
+        </div><br>
+        <input type="color" id="cardcolor" onchange="updateCard()"></input> 
+    </div>
+    <div class="box2" >
+         <h2>Live DOM Output</h2>
+         <div id="card">
+         
+         <p id="outvip"></p>
+         <p id="outname">Alex Walker</p>
+         <p id="outage">Age:23</p>
+         </div>
+    </div>
+    </div>
+    </div>
+    <script>
+        function updateCard(){
+        let name=document.getElementById("name").value;
+        let age=document.getElementById("age").value;
+        let vip=document.getElementById("VIP").checked;
+        let color=document.getElementById("cardcolor").value;
+        document.getElementById("outname").innerText=name;
+        document.getElementById("outage").innerText="Age:"+ age;
+        if(vip){
+            document.getElementById("outvip").innerText="VIP MEMBER";
+
+        }
+        else{
+            document.getElementById("outvip").innerText="";
+
+        }
+        document.getElementById("card").style.backgroundColor=color;
+        }
+    </script>
+</body>
+</html>
