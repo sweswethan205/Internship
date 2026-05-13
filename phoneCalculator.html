@@ -11,6 +11,7 @@
             box-sizing: border-box;
         }
         .container{
+            border: 1px solid black;
             margin: auto;
             background-color: red;
             width: 500px;
@@ -22,10 +23,11 @@
             height: 30px;
             border-radius: 50%;
         }
-        .button{
+        .buttons{
             display: grid;
             grid-template-columns: repeat(4, 1rf);
             gap: 10px;
+            justify-content: center;
 
         }
     </style>
@@ -35,7 +37,7 @@
     <div class="container">
         <input type="text" id="output" value="0">
         </input>
-        <div class="button">
+        <div class="buttons">
             <button onclick="allClear()" style="color:red">C</button>
             <button onclick="deleteLast('⌫')" style="color:red">⌫</button>
             <button onclick="addValue('%')" id="color">%</button>

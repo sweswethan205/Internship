@@ -43,6 +43,7 @@
             border: none;
             margin-bottom: 10px;
             font-size: large;
+            outline:none;
         }
 
         #color {
@@ -86,22 +87,54 @@
     </div>
     <script>
         let answer = document.getElementById("output");
+
         function addValue(value) {
-            let last = answer.value.slice(-1);
-            let operators = ['+', '-', '*', '/', '%'
-            ];
-            if (operators.includes(last) && operators.includes(value)) {
-                answer.value = answer.value.slice(0, -1);
+
+            answer.focus();
+
+            value = value.toString();
+
+            let operators = ['+', '-', '*', '/', '%'];
+
+            let start = answer.selectionStart;
+
+            let currentText = answer.value;
+
+            let before = currentText[start - 1];
+
+            if (
+                operators.includes(before) &&
+                operators.includes(value)
+            ) {
+
+                answer.value =
+                    currentText.slice(0, start - 1) +
+                    value +
+                    currentText.slice(start);
+
+                answer.setSelectionRange(start, start);
+
+                return;
             }
-            //    answer.value += value;
+
             if (answer.value === "0") {
+
                 answer.value = value;
             }
             else {
-                answer.value += value;
-            }
 
+                answer.value =
+                    currentText.slice(0, start) +
+                    value +
+                    currentText.slice(start);
+
+                answer.setSelectionRange(
+                    start + 1,
+                    start + 1
+                );
+            }
         }
+
         function allClear() {
             answer.value = "0";
         }
@@ -123,23 +156,57 @@
             }
         }
         function showAnswer() {
+
             try {
-                let result = eval(answer.value);
+                let expression = answer.value;
+
+                expression = expression.replace(/\)(\d)/g, ")*$1");
+                expression = expression.replace(/(\d+)%/g, "($1/100)");
+                let result = eval(expression);
                 if (result === Infinity || result === -Infinity) {
                     answer.value = "Cann't divide by 0";
                 }
                 else {
                     answer.value = result;
+                    answer.focus();
+
+                    answer.setSelectionRange(
+                        answer.value.length,
+                        answer.value.length
+                    );
                 }
             } catch {
                 answer.value = "Error";
             }
         }
         function addDot() {
-            if (!answer.value.includes('.')) {
-                answer.value += '.';
-            }
-        }
+
+    answer.focus();
+
+    let start = answer.selectionStart || answer.value.length;
+
+    let currentText = answer.value;
+
+    // cursor နောက်ဆုံး
+    if (start === 0) {
+        start = answer.value.length;
+    }
+
+    if (!currentText.includes(".")) {
+
+        answer.value =
+            currentText.slice(0, start) +
+            "." +
+            currentText.slice(start);
+
+        answer.setSelectionRange(
+            start + 1,
+            start + 1
+        );
+    }
+}
+
+        
 
     </script>
 
